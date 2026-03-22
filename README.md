@@ -4,7 +4,7 @@ Install the dependencies and run the front end
 
 ```cmd
 cd front-end
-yarn
+pnpm install
 ```
 
 Create the env file by renaming the .env.temp into .env
@@ -13,7 +13,7 @@ This .env contains all the URL we need to connect to the backend server
 Now run the front end
 
 ```cmd
-yarn start
+pnpm start
 ```
 
 ## FrontEnd Folder Structure
