@@ -14,7 +14,7 @@ const Messages = () => {
   const dispatch = useAppDispatch();
   const user = useUser();
 
-  const socket = useRef<Socket>(undefined);
+  const socket = useRef<Socket | undefined>(undefined);
 
   useEffect(() => {
     if (user && socket) {
