@@ -11,7 +11,7 @@ import { useAppSelector } from "../../store/store";
 interface IMessageAreaProps {
   currentUser: IEmployeeModel | null;
   messageLst: IMessageModel[];
-  socket: React.MutableRefObject<Socket | undefined>;
+  socket: React.RefObject<Socket | undefined>;
   setMessageLst: (value: React.SetStateAction<IMessageModel[]>) => void;
 }
 
