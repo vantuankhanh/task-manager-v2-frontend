@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import TableEmployee from "./TableEmployee";
-import { IEmployeeModel } from "../../models/EmployeeModel";
+import type { IEmployeeModel } from "../../models/EmployeeModel";
 import { getEmployee } from "../../services/employeeService";
 import SearchIcon from "@rsuite/icons/Search";
 import { Button, Input, InputGroup } from "rsuite";
@@ -37,7 +37,7 @@ const EmployeeAdmin = () => {
     setSearch(e);
     if (e) {
       setEmpLstFilter(
-        empLst.filter((emp) => emp.email.includes(e) || emp.name.includes(e))
+        empLst.filter((emp) => emp.email.includes(e) || emp.name.includes(e)),
       );
     } else {
       setEmpLstFilter(empLst);

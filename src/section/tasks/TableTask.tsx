@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "rsuite";
-import { IEmployeeModel } from "../../models/EmployeeModel";
-import { ITaskModel } from "../../models/TaskModel";
-import "../../style/table.scss";
+import type { IEmployeeModel } from "../../models/EmployeeModel";
+import type { ITaskModel } from "../../models/TaskModel";
+import "../../style/table.css";
 import ModalCreateUpdateTask from "./ModalCreatUpdateTask";
 import ModalDeleteTask from "./ModalDeleteTask";
 import { useRole } from "../../hooks/use-user";

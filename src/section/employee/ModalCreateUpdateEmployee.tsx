@@ -9,7 +9,7 @@ import {
   Tooltip,
   Whisper,
 } from "rsuite";
-import { IEmployeeModel } from "../../models/EmployeeModel";
+import type { IEmployeeModel } from "../../models/EmployeeModel";
 import { toast } from "react-toastify";
 import { setLoading } from "../../store/reducer/reducer";
 import { createEmployee, updateEmployee } from "../../services/employeeService";
@@ -64,7 +64,7 @@ const ModalCreateUpdateEmployee = ({
     if (
       emailRef.current &&
       !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-        emailRef.current.value
+        emailRef.current.value,
       )
     ) {
       toast.error("Please input a valid email address");

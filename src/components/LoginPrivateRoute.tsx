@@ -1,8 +1,8 @@
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 import { clearAllCookie } from "../utils/cookieHandler";
 
 interface ILoginPrivateRouteProps {
-  children: JSX.Element;
+  children: React.ReactNode;
 }
 
 const LoginPrivateRoute = ({ children }: ILoginPrivateRouteProps) => {

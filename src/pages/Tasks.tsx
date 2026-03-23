@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import TableTask from "../section/tasks/TableTask";
-import { ITaskModel } from "../models/TaskModel";
+import type { ITaskModel } from "../models/TaskModel";
 import { useAppDispatch } from "../store/store";
 import { setLoading } from "../store/reducer/reducer";
 import { useRole, useUser } from "../hooks/use-user";
 import { getTask } from "../services/taskService";
-import { IEmployeeModel } from "../models/EmployeeModel";
+import type { IEmployeeModel } from "../models/EmployeeModel";
 import { getEmployee } from "../services/employeeService";
 
 const Tasks = () => {

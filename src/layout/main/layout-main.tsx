@@ -1,8 +1,8 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import AppFooter from "./AppFooter";
 import AppSidebar from "./AppSidebar";
 import AppTopbar from "./AppTopbar";
-import { IChildrenProps } from "../../models/ChildrenProps";
+import type { IChildrenProps } from "../../models/ChildrenProps";
 
 const LayoutWrap = ({ children }: IChildrenProps) => {
   return (

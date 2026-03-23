@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import usePathname from "../../hooks/use-pathname";
-import { IMenuModel } from "../../models/MenuModel";
+import type { IMenuModel } from "../../models/MenuModel";
 
 const AppMenuitem = (props: IMenuModel) => {
   const pathname = usePathname();
   const isRoute = props.to && pathname === props.to;
 
   const itemClick = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) => {
     //avoid processing disabled items
     if (props.disabled) {

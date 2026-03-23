@@ -1,17 +1,17 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./style/index.css";
-import "./style/layout/layout.scss";
+import "./style/layout/layout.css";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { Suspense } from "react";
 import LoadingLazy from "./components/Loading/LoadingLazy";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from "react-router";
 import "rsuite/dist/rsuite.min.css";
 import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <Provider store={store}>
@@ -20,5 +20,5 @@ root.render(
         <App />
       </Suspense>
     </BrowserRouter>
-  </Provider>
+  </Provider>,
 );

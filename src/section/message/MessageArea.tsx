@@ -3,15 +3,15 @@ import { useEffect, useRef } from "react";
 import { Button, Input } from "rsuite";
 import { Socket } from "socket.io-client";
 import { useUser } from "../../hooks/use-user";
-import { IEmployeeModel } from "../../models/EmployeeModel";
-import { IMessageModel } from "../../models/MessageModel";
+import type { IEmployeeModel } from "../../models/EmployeeModel";
+import type { IMessageModel } from "../../models/MessageModel";
 import { createMessage } from "../../services/messageService";
 import { useAppSelector } from "../../store/store";
 
 interface IMessageAreaProps {
   currentUser: IEmployeeModel | null;
   messageLst: IMessageModel[];
-  socket: React.MutableRefObject<Socket | undefined>;
+  socket: React.RefObject<Socket | undefined>;
   setMessageLst: (value: React.SetStateAction<IMessageModel[]>) => void;
 }
 

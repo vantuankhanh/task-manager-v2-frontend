@@ -1,20 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { useUser } from "../hooks/use-user";
-import { IEmployeeModel } from "../models/EmployeeModel";
+import type { IEmployeeModel } from "../models/EmployeeModel";
 import MessageArea from "../section/message/MessageArea";
 import MessageContact from "../section/message/MessageContact";
 import { useAppDispatch } from "../store/store";
-import "../style/message.scss";
+import "../style/message.css";
 import { Socket, io } from "socket.io-client";
 import { getMessage } from "../services/messageService";
 import { setLoadingMessage } from "../store/reducer/reducer";
-import { IMessageModel } from "../models/MessageModel";
+import type { IMessageModel } from "../models/MessageModel";
 
 const Messages = () => {
   const dispatch = useAppDispatch();
   const user = useUser();
 
-  const socket = useRef<Socket>();
+  const socket = useRef<Socket>(undefined);
 
   useEffect(() => {
     if (user && socket) {
@@ -39,7 +39,6 @@ const Messages = () => {
     if (message) {
       setMessageLst((prev) => [...prev, message]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useEffect(() => {

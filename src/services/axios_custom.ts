@@ -18,7 +18,7 @@ axiosCustom.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 axiosCustom.interceptors.response.use(
@@ -36,7 +36,7 @@ axiosCustom.interceptors.response.use(
         const response = await axios({
           method: "get",
           url:
-            process.env.REACT_APP_BASE_URL +
+            process.env.REACT_APP_BASE_URL! +
             process.env.REACT_APP_URL_REFRESH_TOKEN,
           headers: {
             Authorization: `Bearer ${currentToken}`,
@@ -53,7 +53,7 @@ axiosCustom.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export default axiosCustom;

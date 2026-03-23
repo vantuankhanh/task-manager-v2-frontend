@@ -1,22 +1,27 @@
-import ArowBackIcon from "@rsuite/icons/ArowBack";
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import ArowBackIcon from "@rsuite/icons/ArrowBack";
+import {
+  useCallback,
+  useState,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
+import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 import { Button, Input } from "rsuite";
 import { LoginType } from "../../../models/LoginType";
-import { toast } from "react-toastify";
 
 interface ILoginEmailProps {
   setType: Dispatch<SetStateAction<LoginType>>;
   onSubmit: (
     type: string,
     phoneNumber?: string,
-    email?: string
+    email?: string,
   ) => Promise<void>;
   onVerifyCode: (
     type: string,
     code: string,
     phoneNumber?: string,
-    email?: string
+    email?: string,
   ) => Promise<void>;
 }
 

@@ -1,5 +1,5 @@
 import { lazy, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { LoginType } from "../../models/LoginType";
 import { sendVerifyCode, submitVerifyCode } from "../../services/loginService";
@@ -9,7 +9,7 @@ import { useAppDispatch } from "../../store/store";
 const LoginPhone = lazy(() => import("../../section/auth/login/LoginPhone"));
 const LoginEmail = lazy(() => import("../../section/auth/login/LoginEmail"));
 const LoginPassword = lazy(
-  () => import("../../section/auth/login/LoginPassword")
+  () => import("../../section/auth/login/LoginPassword"),
 );
 
 const Login = () => {
@@ -18,31 +18,27 @@ const Login = () => {
 
   const [typeLogin, setTypeLogin] = useState(LoginType.phoneNumber);
 
-  const [time, setTime] = useState<number>(30);
-  const [isCountdown, setIsCountdown] = useState(false);
+  const [time, setTime] = useState<number>(0);
+  const isCountdown = time > 0;
 
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isCountdown && time > 0) {
-      timer = setTimeout(() => {
+    if (isCountdown) {
+      const timer = setTimeout(() => {
         setTime((prev) => prev - 1);
       }, 1000);
-    } else {
-      setIsCountdown(false);
-    }
 
-    return () => clearInterval(timer);
+      return () => clearTimeout(timer);
+    }
   }, [time, isCountdown]);
 
   const onSubmit = async (
     type: string,
     phoneNumber?: string,
-    email?: string
+    email?: string,
   ) => {
     if (!isCountdown) {
       dispatch(setLoading(true));
 
-      setIsCountdown(true);
       setTime(30);
       const res = await sendVerifyCode(type, phoneNumber, email);
       if (!res || res.status > 300) {
@@ -59,7 +55,7 @@ const Login = () => {
     type: string,
     code: string,
     phoneNumber?: string,
-    email?: string
+    email?: string,
   ) => {
     dispatch(setLoading(true));
 

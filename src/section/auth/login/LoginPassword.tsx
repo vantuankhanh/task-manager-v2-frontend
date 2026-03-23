@@ -1,7 +1,12 @@
 import EyeIcon from "@rsuite/icons/legacy/Eye";
 import EyeSlashIcon from "@rsuite/icons/legacy/EyeSlash";
-import { Dispatch, SetStateAction, useCallback, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  type Dispatch,
+  type SetStateAction,
+  useCallback,
+  useState,
+} from "react";
+import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 import { Button, Input, InputGroup } from "rsuite";
 import { LoginType } from "../../../models/LoginType";

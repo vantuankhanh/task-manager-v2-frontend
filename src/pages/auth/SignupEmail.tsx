@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router";
 import { Button, Input, InputGroup } from "rsuite";
 import { createPassword } from "../../services/employeeService";
 import { toast } from "react-toastify";

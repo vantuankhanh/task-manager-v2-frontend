@@ -1,6 +1,6 @@
 import { Button } from "rsuite";
 import Home from "@rsuite/icons/legacy/Home";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router";
 
 const NotFound = () => {
   const nav = useNavigate();

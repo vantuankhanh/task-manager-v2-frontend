@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Navigate, Outlet, useRoutes } from "react-router-dom";
+import { Navigate, Outlet, useRoutes } from "react-router";
 import LoginPrivateRoute from "../components/LoginPrivateRoute";
 import LoggedInPrivateRoute from "../components/LoggedInPrivateRoute";
 import LayoutMain from "../layout/main/layout-main";

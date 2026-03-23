@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { IRefreshTokenDecodeModel } from "../models/RefreshTokenDecodeModel";
+import type { IRefreshTokenDecodeModel } from "../models/RefreshTokenDecodeModel";
 import { jwtDecode } from "jwt-decode";
 
 export const useUser = () => {

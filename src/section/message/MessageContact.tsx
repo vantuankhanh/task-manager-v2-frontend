@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { IEmployeeModel } from "../../models/EmployeeModel";
+import type { IEmployeeModel } from "../../models/EmployeeModel";
 import { useAppDispatch } from "../../store/store";
 import { getEmployee } from "../../services/employeeService";
 import { setLoading } from "../../store/reducer/reducer";
@@ -45,7 +45,7 @@ const MessageContact = ({ setCurrentChat }: IMessageContactProps) => {
     setSearch(e);
     if (e) {
       setEmpLstFilter(
-        empLst.filter((emp) => emp.email.includes(e) || emp.name.includes(e))
+        empLst.filter((emp) => emp.email.includes(e) || emp.name.includes(e)),
       );
     } else {
       setEmpLstFilter(empLst);

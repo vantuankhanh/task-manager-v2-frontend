@@ -1,5 +1,5 @@
-import { Navigate } from "react-router-dom";
-import { IChildrenProps } from "../models/ChildrenProps";
+import { Navigate } from "react-router";
+import type { IChildrenProps } from "../models/ChildrenProps";
 
 const LoggedInPrivateRoute = ({ children }: IChildrenProps) => {
   const data = localStorage.getItem("refresh_token");

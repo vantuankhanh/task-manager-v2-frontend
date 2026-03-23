@@ -4,7 +4,7 @@ import Message from "@rsuite/icons/Message";
 import SignOut from "@rsuite/icons/legacy/SignOut";
 import { useMemo } from "react";
 import { useRole } from "../../hooks/use-user";
-import { IMenuModel } from "../../models/MenuModel";
+import type { IMenuModel } from "../../models/MenuModel";
 import AppMenuitem from "./AppMenuitem";
 
 const AppMenu = () => {

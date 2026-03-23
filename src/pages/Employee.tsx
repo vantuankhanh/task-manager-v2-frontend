@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 import { useRole } from "../hooks/use-user";
 
 const EmployeeAdmin = lazy(() => import("../section/employee/EmployeeAdmin"));
