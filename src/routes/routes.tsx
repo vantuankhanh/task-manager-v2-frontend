@@ -1,23 +1,23 @@
 import { lazy } from "react";
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
-import LoginPrivateRoute from "../components/LoginPrivateRoute";
-import LoggedInPrivateRoute from "../components/LoggedInPrivateRoute";
-import LayoutMain from "../layout/main/layout-main";
+import LayoutMain from "../components/layouts/main-layout";
+import RedirectIfAuthenticated from "./redirect-if-authenticated";
+import RequireLogin from "./require-login";
 
 /* -----------------------------AUTH--------------------------------- */
 
-const AccessDeniedPage = lazy(() => import("../pages/auth/Access"));
-const Login = lazy(() => import("../pages/auth/Login"));
-const Logout = lazy(() => import("../pages/auth/Logout"));
-const NotFound = lazy(() => import("../pages/auth/NotFound"));
-const SignupEmail = lazy(() => import("../pages/auth/SignupEmail"));
+const AccessDeniedPage = lazy(() => import("../components/pages/auth/access"));
+const Login = lazy(() => import("../components/pages/auth/login"));
+const Logout = lazy(() => import("../components/pages/auth/logout"));
+const NotFound = lazy(() => import("../components/pages/auth/not-found"));
+const SignupEmail = lazy(() => import("../components/pages/auth/signup-email"));
 
 /* ----------------------------PAGE--------------------------------- */
 
-const Homepage = lazy(() => import("../pages/Homepage"));
-const Employee = lazy(() => import("../pages/Employee"));
-const Tasks = lazy(() => import("../pages/Tasks"));
-const Messages = lazy(() => import("../pages/Messages"));
+const Homepage = lazy(() => import("../components/pages/homepage/homepage"));
+const Employee = lazy(() => import("../components/pages/employee/employee"));
+const Tasks = lazy(() => import("../components/pages/tasks/tasks"));
+const Messages = lazy(() => import("../components/pages/messages/messages"));
 
 /* ------------------------------------------------------------------ */
 
@@ -25,11 +25,11 @@ const Router = () => {
   const routes = useRoutes([
     {
       element: (
-        <LoginPrivateRoute>
+        <RequireLogin>
           <LayoutMain>
             <Outlet />
           </LayoutMain>
-        </LoginPrivateRoute>
+        </RequireLogin>
       ),
       children: [
         { path: "", element: <Homepage /> },
@@ -45,9 +45,9 @@ const Router = () => {
         {
           path: "login",
           element: (
-            <LoggedInPrivateRoute>
+            <RedirectIfAuthenticated>
               <Login />
-            </LoggedInPrivateRoute>
+            </RedirectIfAuthenticated>
           ),
         },
         { path: "logout", element: <Logout /> },

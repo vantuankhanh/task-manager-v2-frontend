@@ -1,5 +1,5 @@
 import { ToastContainer } from "react-toastify";
-import Loading from "./components/Loading/Loading";
+import Loading from "./components/commons/loading/loading";
 import Router from "./routes/routes";
 
 const App = () => {
