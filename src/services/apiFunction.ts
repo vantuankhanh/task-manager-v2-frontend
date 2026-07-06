@@ -11,7 +11,7 @@ interface IAPIFunctionOptionProps {
 
 export const getAPI = async (url: string, option?: IAPIFunctionOptionProps) =>
   await axiosCustom
-    .get(process.env.REACT_APP_BASE_URL + url, { ...option?.configAPI })
+    .get(import.meta.env.VITE_BASE_URL + url, { ...option?.configAPI })
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
         option?.messageSuccess &&
@@ -37,7 +37,7 @@ export const postAPI = async (
   option?: IAPIFunctionOptionProps
 ) =>
   await axiosCustom
-    .post(process.env.REACT_APP_BASE_URL + url, data, { ...option?.configAPI })
+    .post(import.meta.env.VITE_BASE_URL + url, data, { ...option?.configAPI })
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
         option?.messageSuccess &&
@@ -63,7 +63,7 @@ export const putAPI = async (
   option?: IAPIFunctionOptionProps
 ) =>
   await axiosCustom
-    .put(process.env.REACT_APP_BASE_URL + url, data, { ...option?.configAPI })
+    .put(import.meta.env.VITE_BASE_URL + url, data, { ...option?.configAPI })
     .then((res) => {
       if (res.status >= 200 && res.status < 300) {
         option?.messageSuccess &&
@@ -89,7 +89,7 @@ export const deleteAPI = async (
   option?: IAPIFunctionOptionProps
 ) =>
   await axiosCustom
-    .delete(process.env.REACT_APP_BASE_URL + url, {
+    .delete(import.meta.env.VITE_BASE_URL + url, {
       data,
       ...option?.configAPI,
     })

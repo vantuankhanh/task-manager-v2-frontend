@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosCustom = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: import.meta.env.BASE_URL,
   timeout: 15000,
   headers: {
     "Content-Type": "application/json",
@@ -36,8 +36,8 @@ axiosCustom.interceptors.response.use(
         const response = await axios({
           method: "get",
           url:
-            process.env.REACT_APP_BASE_URL +
-            process.env.REACT_APP_URL_REFRESH_TOKEN,
+            import.meta.env.VITE_BASE_URL +
+            import.meta.env.VITE_URL_REFRESH_TOKEN,
           headers: {
             Authorization: `Bearer ${currentToken}`,
           },

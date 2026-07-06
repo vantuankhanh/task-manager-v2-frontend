@@ -2,7 +2,7 @@ import { IMessageModel } from "../models/MessageModel";
 import { postAPI } from "./apiFunction";
 
 export const getMessage = async (from: string, to: string) => {
-  const data = await postAPI(process.env.REACT_APP_URL_GET_MESSAGE, {
+  const data = await postAPI(import.meta.env.VITE_URL_GET_MESSAGE, {
     from,
     to,
   });
@@ -15,7 +15,7 @@ export const createMessage = async (
   message: string
 ) =>
   await postAPI(
-    process.env.REACT_APP_URL_CREATE_MESSAGE,
+    import.meta.env.VITE_URL_CREATE_MESSAGE,
     { from, to, message },
     {
       messageFail: "Create message failed",

@@ -18,7 +18,7 @@ const Messages = () => {
 
   useEffect(() => {
     if (user && socket) {
-      socket.current = io(process.env.REACT_APP_SOCKET_IO_URL);
+      socket.current = io(import.meta.env.VITE_SOCKET_IO_URL);
       socket.current.emit("connectServer", user.id);
       socket.current.on("receiveMessage", (message: string) => {
         setMessage({

@@ -9,7 +9,7 @@ export const login = async (email: string, password: string) => {
     };
 
     const res = await axios.post(
-      process.env.REACT_APP_BASE_URL + process.env.REACT_APP_URL_LOGIN,
+      import.meta.env.VITE_BASE_URL + import.meta.env.VITE_URL_LOGIN,
       request
     );
 
@@ -27,8 +27,8 @@ export const sendVerifyCode = async (
 ) => {
   try {
     const res = await axios.post(
-      process.env.REACT_APP_BASE_URL +
-        process.env.REACT_APP_URL_SEND_VERIFY_CODE,
+      import.meta.env.VITE_BASE_URL +
+        import.meta.env.VITE_URL_SEND_VERIFY_CODE,
       {
         type,
         phoneNumber,
@@ -49,7 +49,7 @@ export const submitVerifyCode = async (
 ) => {
   try {
     const res = await axios.post(
-      process.env.REACT_APP_BASE_URL + process.env.REACT_APP_URL_VALIDATE_CODE,
+      import.meta.env.VITE_BASE_URL + import.meta.env.VITE_URL_VALIDATE_CODE,
       {
         type,
         phoneNumber,

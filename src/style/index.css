@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 body {
   margin: 0;
@@ -10,4 +8,23 @@ body {
 
 .box-center {
   @apply flex justify-center items-center;
+}
+
+/* Utility-derived rules relocated from SCSS: @tailwindcss/vite does not process
+   @apply inside .scss files, so they live here alongside `@import "tailwindcss"`.
+   v4 utility renames applied: `shadow` -> `shadow-sm`, `rounded` -> `rounded-sm`. */
+.sidebar {
+  @apply shadow-md;
+}
+
+.topbar {
+  @apply shadow-sm;
+}
+
+.message-user-list {
+  @apply flex flex-col items-center gap-4 overflow-y-auto overflow-x-hidden pr-4;
+}
+
+.message-user-card {
+  @apply w-full cursor-pointer rounded-sm border border-gray-200 p-3 shadow-sm hover:shadow-md hover:shadow-gray-300;
 }
