@@ -1,7 +1,9 @@
-import FolderFillIcon from "@rsuite/icons/FolderFill";
-import UserInfoIcon from "@rsuite/icons/Member";
-import Message from "@rsuite/icons/Message";
-import SignOut from "@rsuite/icons/legacy/SignOut";
+import {
+  FaFolder as FolderFillIcon,
+  FaUser as UserInfoIcon,
+  FaCommentDots as Message,
+  FaRightFromBracket as SignOut,
+} from "react-icons/fa6";
 import { useMemo } from "react";
 import { useRole } from "../../hooks/use-user";
 import { IMenuModel } from "../../models/MenuModel";

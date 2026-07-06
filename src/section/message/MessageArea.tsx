@@ -1,4 +1,4 @@
-import SpinnerIcon from "@rsuite/icons/legacy/Spinner";
+import { FaSpinner as SpinnerIcon } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 import { Button, Input } from "rsuite";
 import { Socket } from "socket.io-client";
@@ -107,7 +107,7 @@ const MessageArea = ({
           )
         ) : (
           <div className="h-full w-full gap-3 box-center">
-            <SpinnerIcon pulse style={{ fontSize: "1.5em" }} />
+            <SpinnerIcon className="animate-spin" style={{ fontSize: "1.5em" }} />
             <p className="text-lg font-bold">Loading...</p>
           </div>
         )}

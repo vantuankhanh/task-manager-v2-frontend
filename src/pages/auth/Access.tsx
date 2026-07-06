@@ -1,5 +1,5 @@
 import { Button } from "rsuite";
-import Home from "@rsuite/icons/legacy/Home";
+import { FaHouse as Home } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 
 const Access = () => {

@@ -4,7 +4,7 @@ import { useAppDispatch } from "../../store/store";
 import { getEmployee } from "../../services/employeeService";
 import { setLoading } from "../../store/reducer/reducer";
 import { Input, InputGroup } from "rsuite";
-import SearchIcon from "@rsuite/icons/Search";
+import { FaMagnifyingGlass as SearchIcon } from "react-icons/fa6";
 import { useUser } from "../../hooks/use-user";
 
 interface IMessageContactProps {

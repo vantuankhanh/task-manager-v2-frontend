@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { useAppSelector } from "../../store/store";
-import SpinnerIcon from "@rsuite/icons/legacy/Spinner";
+import { FaSpinner as SpinnerIcon } from "react-icons/fa";
 
 const Loading = memo(() => {
   const { isLoading } = useAppSelector((s) => s.loadingStore);
@@ -13,7 +13,7 @@ const Loading = memo(() => {
       style={{ zIndex: 9999 }}
     >
       <div className="h-full w-full gap-3 box-center">
-        <SpinnerIcon pulse style={{ fontSize: "1.5em" }} />
+        <SpinnerIcon className="animate-spin" style={{ fontSize: "1.5em" }} />
         <p className="text-lg font-bold">Loading...</p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import ArowBackIcon from "@rsuite/icons/ArowBack";
+import { FaArrowLeft as ArowBackIcon } from "react-icons/fa6";
 import { Dispatch, SetStateAction, useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Input } from "rsuite";

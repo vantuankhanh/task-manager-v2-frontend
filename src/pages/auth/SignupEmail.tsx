@@ -3,8 +3,7 @@ import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { Button, Input, InputGroup } from "rsuite";
 import { createPassword } from "../../services/employeeService";
 import { toast } from "react-toastify";
-import EyeIcon from "@rsuite/icons/legacy/Eye";
-import EyeSlashIcon from "@rsuite/icons/legacy/EyeSlash";
+import { FaEye as EyeIcon, FaEyeSlash as EyeSlashIcon } from "react-icons/fa6";
 import { useAppDispatch } from "../../store/store";
 import { setLoading } from "../../store/reducer/reducer";
 

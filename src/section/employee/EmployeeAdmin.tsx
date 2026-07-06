@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import TableEmployee from "./TableEmployee";
 import { IEmployeeModel } from "../../models/EmployeeModel";
 import { getEmployee } from "../../services/employeeService";
-import SearchIcon from "@rsuite/icons/Search";
+import { FaMagnifyingGlass as SearchIcon } from "react-icons/fa6";
 import { Button, Input, InputGroup } from "rsuite";
 import { useAppDispatch } from "../../store/store";
 import { setLoading } from "../../store/reducer/reducer";
