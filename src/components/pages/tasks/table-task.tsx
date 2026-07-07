@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Button } from "rsuite";
-import { useRole } from "../../../libs/hooks/use-user";
-import { IEmployeeModel } from "../../../services/employee";
-import { ITaskModel } from "../../../services/task";
-import "../../../styles/table.scss";
-import ModalCreateUpdateTask from "./modal-create-update-task";
-import ModalDeleteTask from "./modal-delete-task";
+import { useRole } from "@/libs/hooks/use-user";
+import { IEmployeeModel } from "@/services/employee";
+import { ITaskModel } from "@/services/task";
+import "@/styles/table.scss";
+import ModalCreateUpdateTask from "@/components/pages/tasks/modal-create-update-task";
+import ModalDeleteTask from "@/components/pages/tasks/modal-delete-task";
+import classNames from "classnames";
 
 interface ITableTaskProps {
   empList: IEmployeeModel[];
@@ -116,19 +117,20 @@ const TableTask = ({ empList, taskLst, getTask }: ITableTaskProps) => {
                 </td>
                 <td>
                   <div className="box-center">
-                    {e.status === 1 ? (
-                      <div className="box-center w-8/12 py-1 px-8 bg-green-200 text-green-500 text-xs text-center">
-                        <p>Done</p>
-                      </div>
-                    ) : (
-                      <div className="box-center w-8/12 py-1 px-8 bg-red-200 text-red-500 text-xs text-center">
-                        <p>Pending</p>
-                      </div>
-                    )}
+                    <div
+                      className={classNames(
+                        "box-center w-8/12 py-1 px-8 text-xs text-center rounded",
+                        e.status === 1
+                          ? "bg-green-200 text-green-500"
+                          : "bg-red-200 text-red-500",
+                      )}
+                    >
+                      <p>{e.status === 1 ? "Done" : "Pending"}</p>
+                    </div>
                   </div>
                 </td>
                 <td>
-                  <div className="w-full flex justify-center">
+                  <div className="w-full flex justify-center gap-2">
                     <Button
                       className="mr-4"
                       appearance="primary"

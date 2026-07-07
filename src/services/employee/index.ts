@@ -1,2 +1,2 @@
-export * from "./employee.api";
-export * from "./employee.types";
+export * from "@/services/employee/employee.api";
+export * from "@/services/employee/employee.types";

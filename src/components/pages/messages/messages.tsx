@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Socket, io } from "socket.io-client";
-import { useUser } from "../../../libs/hooks/use-user";
-import { setLoadingMessage } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { IEmployeeModel } from "../../../services/employee";
-import { IMessageModel, getMessage } from "../../../services/message";
-import "../../../styles/message.scss";
-import MessageArea from "./message-area";
-import MessageContact from "./message-contact";
+import { useUser } from "@/libs/hooks/use-user";
+import { setLoadingMessage } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { IEmployeeModel } from "@/services/employee";
+import { IMessageModel, getMessage } from "@/services/message";
+import "@/styles/message.scss";
+import MessageArea from "@/components/pages/messages/message-area";
+import MessageContact from "@/components/pages/messages/message-contact";
 
 const Messages = () => {
   const dispatch = useAppDispatch();

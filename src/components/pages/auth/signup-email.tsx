@@ -3,9 +3,9 @@ import { FaEye as EyeIcon, FaEyeSlash as EyeSlashIcon } from "react-icons/fa6";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Input, InputGroup } from "rsuite";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { createPassword } from "../../../services/employee";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { createPassword } from "@/services/employee";
 
 const SignupChild = ({ id }: { id: string }) => {
   const nav = useNavigate();

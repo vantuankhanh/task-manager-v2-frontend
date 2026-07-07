@@ -1,5 +1,5 @@
-import { useUser } from "../../libs/hooks/use-user";
-import Logo from "../../assets/images/logo.png";
+import { useUser } from "@/libs/hooks/use-user";
+import Logo from "@/assets/images/logo.png";
 
 const AppTopbar = () => {
   const user = useUser();

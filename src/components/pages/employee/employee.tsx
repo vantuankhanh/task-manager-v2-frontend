@@ -1,8 +1,8 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
-import { useRole } from "../../../libs/hooks/use-user";
+import { useRole } from "@/libs/hooks/use-user";
 
-const EmployeeAdmin = lazy(() => import("./employee-admin"));
+const EmployeeAdmin = lazy(() => import("@/components/pages/employee/employee-admin"));
 
 const Employee = () => {
   const role = useRole();

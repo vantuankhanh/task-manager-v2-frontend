@@ -3,7 +3,7 @@ import { FaArrowLeft as ArowBackIcon } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Input, InputGroup, Tooltip, Whisper } from "rsuite";
-import { LoginType } from "../../../services/auth";
+import { LoginType } from "@/services/auth";
 
 interface ILoginPhoneProps {
   setType: Dispatch<SetStateAction<LoginType>>;

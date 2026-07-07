@@ -9,13 +9,13 @@ import {
   Tooltip,
   Whisper,
 } from "rsuite";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
 import {
   createEmployee,
   IEmployeeModel,
   updateEmployee,
-} from "../../../services/employee";
+} from "@/services/employee";
 
 interface IModalCreateUpdateEmployeeProps {
   visible: boolean;

@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
-import { IChildrenProps } from "../../libs/types/children-props";
-import AppFooter from "./app-footer";
-import AppSidebar from "./app-sidebar";
-import AppTopbar from "./app-topbar";
+import { IChildrenProps } from "@/libs/types/children-props";
+import AppFooter from "@/components/layouts/app-footer";
+import AppSidebar from "@/components/layouts/app-sidebar";
+import AppTopbar from "@/components/layouts/app-topbar";
 
 const LayoutWrap = ({ children }: IChildrenProps) => {
   return (

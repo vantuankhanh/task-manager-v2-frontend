@@ -1,23 +1,23 @@
 import { lazy } from "react";
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
-import LayoutMain from "../components/layouts/main-layout";
-import RedirectIfAuthenticated from "./redirect-if-authenticated";
-import RequireLogin from "./require-login";
+import LayoutMain from "@/components/layouts/main-layout";
+import RedirectIfAuthenticated from "@/routes/redirect-if-authenticated";
+import RequireLogin from "@/routes/require-login";
 
 /* -----------------------------AUTH--------------------------------- */
 
-const AccessDeniedPage = lazy(() => import("../components/pages/auth/access"));
-const Login = lazy(() => import("../components/pages/auth/login"));
-const Logout = lazy(() => import("../components/pages/auth/logout"));
-const NotFound = lazy(() => import("../components/pages/auth/not-found"));
-const SignupEmail = lazy(() => import("../components/pages/auth/signup-email"));
+const AccessDeniedPage = lazy(() => import("@/components/pages/auth/access"));
+const Login = lazy(() => import("@/components/pages/auth/login"));
+const Logout = lazy(() => import("@/components/pages/auth/logout"));
+const NotFound = lazy(() => import("@/components/pages/auth/not-found"));
+const SignupEmail = lazy(() => import("@/components/pages/auth/signup-email"));
 
 /* ----------------------------PAGE--------------------------------- */
 
-const Homepage = lazy(() => import("../components/pages/homepage/homepage"));
-const Employee = lazy(() => import("../components/pages/employee/employee"));
-const Tasks = lazy(() => import("../components/pages/tasks/tasks"));
-const Messages = lazy(() => import("../components/pages/messages/messages"));
+const Homepage = lazy(() => import("@/components/pages/homepage/homepage"));
+const Employee = lazy(() => import("@/components/pages/employee/employee"));
+const Tasks = lazy(() => import("@/components/pages/tasks/tasks"));
+const Messages = lazy(() => import("@/components/pages/messages/messages"));
 
 /* ------------------------------------------------------------------ */
 

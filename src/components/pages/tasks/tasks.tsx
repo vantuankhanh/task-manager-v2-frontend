@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { useRole, useUser } from "../../../libs/hooks/use-user";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { getEmployee, IEmployeeModel } from "../../../services/employee";
-import { getTask, ITaskModel } from "../../../services/task";
-import TableTask from "./table-task";
+import { useRole, useUser } from "@/libs/hooks/use-user";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { getEmployee, IEmployeeModel } from "@/services/employee";
+import { getTask, ITaskModel } from "@/services/task";
+import TableTask from "@/components/pages/tasks/table-task";
 
 const Tasks = () => {
   const role = useRole();

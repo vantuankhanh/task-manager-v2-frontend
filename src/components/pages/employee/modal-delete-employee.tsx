@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Modal } from "rsuite";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { deleteEmployee } from "../../../services/employee";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { deleteEmployee } from "@/services/employee";
 
 interface IModalDeleteEmployeeProps {
   idDelete: string | null;

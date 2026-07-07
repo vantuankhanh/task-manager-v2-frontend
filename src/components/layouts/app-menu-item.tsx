@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import React from "react";
 import { Link } from "react-router-dom";
-import usePathname from "../../libs/hooks/use-pathname";
-import { IMenuModel } from "../../libs/types/menu-model";
+import usePathname from "@/libs/hooks/use-pathname";
+import { IMenuModel } from "@/libs/types/menu-model";
 
 const AppMenuitem = (props: IMenuModel) => {
   const pathname = usePathname();

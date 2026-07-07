@@ -1,5 +1,5 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
-import storeType from "../type";
+import storeType from "@/libs/store/type";
 
 interface IReducerState {
   isLoading: boolean;

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FaMagnifyingGlass as SearchIcon } from "react-icons/fa6";
 import { Input, InputGroup } from "rsuite";
-import { useUser } from "../../../libs/hooks/use-user";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { getEmployee, IEmployeeModel } from "../../../services/employee";
+import { useUser } from "@/libs/hooks/use-user";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { getEmployee, IEmployeeModel } from "@/services/employee";
 
 interface IMessageContactProps {
   setCurrentChat: (value: React.SetStateAction<IEmployeeModel | null>) => void;
@@ -73,7 +73,7 @@ const MessageContact = ({ setCurrentChat }: IMessageContactProps) => {
             }`}
             onClick={onEmployeeSelect(e, i)}
           >
-            <p className="text-lg font-bold overflow-ellipsis overflow-hidden">
+            <p className="text-lg font-bold text-ellipsis overflow-hidden">
               {e.email}
             </p>
             <p>{e.name}</p>

@@ -1,2 +1,2 @@
-export * from "./auth.api";
-export * from "./auth.types";
+export * from "@/services/auth/auth.api";
+export * from "@/services/auth/auth.types";

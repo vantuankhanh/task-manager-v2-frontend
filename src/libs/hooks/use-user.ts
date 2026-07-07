@@ -1,6 +1,6 @@
 import { jwtDecode } from "jwt-decode";
 import { useMemo } from "react";
-import { IRefreshTokenDecodeModel } from "../types/refresh-token-decode-model";
+import { IRefreshTokenDecodeModel } from "@/libs/types/refresh-token-decode-model";
 
 export const useUser = () => {
   const token = localStorage.getItem("refresh_token");

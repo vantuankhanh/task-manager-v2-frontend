@@ -1,17 +1,17 @@
 import { lazy, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
 import {
   LoginType,
   sendVerifyCode,
   submitVerifyCode,
-} from "../../../services/auth";
+} from "@/services/auth";
 
-const LoginPhone = lazy(() => import("./login-phone"));
-const LoginEmail = lazy(() => import("./login-email"));
-const LoginPassword = lazy(() => import("./login-password"));
+const LoginPhone = lazy(() => import("@/components/pages/auth/login-phone"));
+const LoginEmail = lazy(() => import("@/components/pages/auth/login-email"));
+const LoginPassword = lazy(() => import("@/components/pages/auth/login-password"));
 
 const Login = () => {
   const nav = useNavigate();

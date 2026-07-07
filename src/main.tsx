@@ -4,11 +4,11 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "rsuite/dist/rsuite.min.css";
-import App from "./App";
-import LoadingLazy from "./components/commons/loading/loading-lazy";
-import { store } from "./libs/store/store";
-import "./styles/index.css";
-import "./styles/layout/layout.scss";
+import App from "@/App";
+import LoadingLazy from "@/components/commons/loading/loading-lazy";
+import { store } from "@/libs/store/store";
+import "@/styles/index.css";
+import "@/styles/layout/layout.scss";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

@@ -1,5 +1,5 @@
-import { request } from "../../libs/api/api-function";
-import { ITaskModel } from "./task.types";
+import { request } from "@/libs/api/api-function";
+import { ITaskModel } from "@/services/task/task.types";
 
 export const createTask = async (item: ITaskModel) => {
   const data = await request("post", import.meta.env.VITE_URL_CREATE_TASK, item, {

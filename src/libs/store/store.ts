@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector } from "react-redux";
-import { loadingReducer } from "./reducer/reducer";
+import { loadingReducer } from "@/libs/store/reducer/reducer";
 
 const appReducers = combineReducers({
   loadingStore: loadingReducer,

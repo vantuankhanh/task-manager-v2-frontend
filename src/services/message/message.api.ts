@@ -1,5 +1,5 @@
-import { request } from "../../libs/api/api-function";
-import { IMessageModel } from "./message.types";
+import { request } from "@/libs/api/api-function";
+import { IMessageModel } from "@/services/message/message.types";
 
 export const getMessage = async (from: string, to: string) => {
   const data = await request("post", import.meta.env.VITE_URL_GET_MESSAGE, {

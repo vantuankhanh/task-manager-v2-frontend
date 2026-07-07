@@ -1,6 +1,6 @@
 import { AxiosError, AxiosRequestConfig, Method } from "axios";
 import { toast } from "react-toastify";
-import axiosCustom from "./http-client";
+import axiosCustom from "@/libs/api/http-client";
 
 interface IAPIFunctionOptionProps {
   messageAPI?: boolean;

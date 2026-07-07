@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button } from "rsuite";
-import { IEmployeeModel } from "../../../services/employee";
-import "../../../styles/table.scss";
-import ModalDeleteEmployee from "./modal-delete-employee";
+import { IEmployeeModel } from "@/services/employee";
+import "@/styles/table.scss";
+import ModalDeleteEmployee from "@/components/pages/employee/modal-delete-employee";
 
 interface ITableUserProps {
   empLst: IEmployeeModel[];

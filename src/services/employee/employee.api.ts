@@ -1,5 +1,5 @@
-import { request } from "../../libs/api/api-function";
-import { IEmployeeModel } from "./employee.types";
+import { request } from "@/libs/api/api-function";
+import { IEmployeeModel } from "@/services/employee/employee.types";
 
 export const getEmployee = async (id: string = "", role?: number) => {
   const data = await request(

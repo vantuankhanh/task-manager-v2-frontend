@@ -3,9 +3,9 @@ import { FaEye as EyeIcon, FaEyeSlash as EyeSlashIcon } from "react-icons/fa6";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Input, InputGroup } from "rsuite";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { login, LoginType } from "../../../services/auth";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { login, LoginType } from "@/services/auth";
 
 interface ILoginPasswordProps {
   setType: Dispatch<SetStateAction<LoginType>>;

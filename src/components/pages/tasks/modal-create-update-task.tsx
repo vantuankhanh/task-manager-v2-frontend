@@ -1,11 +1,11 @@
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { Button, DatePicker, Input, Modal, SelectPicker } from "rsuite";
-import { useRole, useUser } from "../../../libs/hooks/use-user";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { IEmployeeModel } from "../../../services/employee";
-import { createTask, ITaskModel, updateTask } from "../../../services/task";
+import { useRole, useUser } from "@/libs/hooks/use-user";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { IEmployeeModel } from "@/services/employee";
+import { createTask, ITaskModel, updateTask } from "@/services/task";
 
 interface IModalCreateUpdateTaskProps {
   empList: IEmployeeModel[];

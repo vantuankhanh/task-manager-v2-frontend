@@ -1,2 +1,2 @@
-export * from "./task.api";
-export * from "./task.types";
+export * from "@/services/task/task.api";
+export * from "@/services/task/task.types";

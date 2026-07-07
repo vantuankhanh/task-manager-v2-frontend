@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { FaSpinner as SpinnerIcon } from "react-icons/fa";
-import { useAppSelector } from "../../../libs/store/store";
+import { useAppSelector } from "@/libs/store/store";
 
 const Loading = memo(() => {
   const { isLoading } = useAppSelector((s) => s.loadingStore);

@@ -5,9 +5,9 @@ import {
   FaRightFromBracket as SignOut,
   FaUser as UserInfoIcon,
 } from "react-icons/fa6";
-import { useRole } from "../../libs/hooks/use-user";
-import { IMenuModel } from "../../libs/types/menu-model";
-import AppMenuitem from "./app-menu-item";
+import { useRole } from "@/libs/hooks/use-user";
+import { IMenuModel } from "@/libs/types/menu-model";
+import AppMenuitem from "@/components/layouts/app-menu-item";
 
 const AppMenu = () => {
   const role = useRole();

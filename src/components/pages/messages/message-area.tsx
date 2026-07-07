@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import { FaSpinner as SpinnerIcon } from "react-icons/fa";
 import { Button, Input } from "rsuite";
 import { Socket } from "socket.io-client";
-import { useUser } from "../../../libs/hooks/use-user";
-import { useAppSelector } from "../../../libs/store/store";
-import { IEmployeeModel } from "../../../services/employee";
-import { createMessage, IMessageModel } from "../../../services/message";
+import { useUser } from "@/libs/hooks/use-user";
+import { useAppSelector } from "@/libs/store/store";
+import { IEmployeeModel } from "@/services/employee";
+import { createMessage, IMessageModel } from "@/services/message";
 
 interface IMessageAreaProps {
   currentUser: IEmployeeModel | null;

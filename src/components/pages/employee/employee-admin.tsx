@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { FaMagnifyingGlass as SearchIcon } from "react-icons/fa6";
 import { Button, Input, InputGroup } from "rsuite";
-import { setLoading } from "../../../libs/store/reducer/reducer";
-import { useAppDispatch } from "../../../libs/store/store";
-import { getEmployee, IEmployeeModel } from "../../../services/employee";
-import ModalCreateUpdateEmployee from "./modal-create-update-employee";
-import TableEmployee from "./table-employee";
+import { setLoading } from "@/libs/store/reducer/reducer";
+import { useAppDispatch } from "@/libs/store/store";
+import { getEmployee, IEmployeeModel } from "@/services/employee";
+import ModalCreateUpdateEmployee from "@/components/pages/employee/modal-create-update-employee";
+import TableEmployee from "@/components/pages/employee/table-employee";
 
 const EmployeeAdmin = () => {
   const dispatch = useAppDispatch();

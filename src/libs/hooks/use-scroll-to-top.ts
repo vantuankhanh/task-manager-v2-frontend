@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import usePathname from "./use-pathname";
+import usePathname from "@/libs/hooks/use-pathname";
 
 const useScrollToTop = () => {
   const pathname = usePathname();
