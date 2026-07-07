@@ -26,7 +26,7 @@ const SignupChild = ({ id }: { id: string }) => {
         toast.success("Created password successfully. Please sign in!");
         dispatch(setLoading(false));
         nav("/");
-      } catch (error) {
+      } catch {
         toast.error("Signup failed");
       }
     } else {
