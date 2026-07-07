@@ -1,12 +1,12 @@
-import { postAPI } from "../../libs/api/api-function";
+import { request } from "../../libs/api/api-function";
 import { IMessageModel } from "./message.types";
 
 export const getMessage = async (from: string, to: string) => {
-  const data = await postAPI(import.meta.env.VITE_URL_GET_MESSAGE, {
+  const data = await request("post", import.meta.env.VITE_URL_GET_MESSAGE, {
     from,
     to,
   });
-  return data.data as IMessageModel[];
+  return data ? (data.data as IMessageModel[]) : [];
 };
 
 export const createMessage = async (
@@ -14,7 +14,8 @@ export const createMessage = async (
   to: string,
   message: string,
 ) =>
-  await postAPI(
+  await request(
+    "post",
     import.meta.env.VITE_URL_CREATE_MESSAGE,
     { from, to, message },
     {
