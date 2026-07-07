@@ -83,7 +83,7 @@ const MessageArea = ({
                       </p>
                       <p className="flex justify-end text-xs italic mt-1 pr-1">
                         {mess.createdAt &&
-                          new Date(mess.createdAt).toLocaleDateString("en-EN", {
+                          new Date(mess.createdAt).toLocaleDateString("en-US", {
                             day: "2-digit",
                             month: "2-digit",
                             year: "numeric",

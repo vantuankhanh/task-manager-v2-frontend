@@ -101,14 +101,14 @@ const TableTask = ({ empList, taskLst, getTask }: ITableTaskProps) => {
                   {e.content}
                 </td>
                 <td>
-                  {new Date(e.dateStart).toLocaleDateString("en-EN", {
+                  {new Date(e.dateStart).toLocaleDateString("en-US", {
                     day: "2-digit",
                     month: "2-digit",
                     year: "numeric",
                   })}
                 </td>
                 <td>
-                  {new Date(e.dateEnd).toLocaleDateString("en-EN", {
+                  {new Date(e.dateEnd).toLocaleDateString("en-US", {
                     day: "2-digit",
                     month: "2-digit",
                     year: "numeric",

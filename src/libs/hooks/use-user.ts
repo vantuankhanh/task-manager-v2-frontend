@@ -4,19 +4,15 @@ import { IRefreshTokenDecodeModel } from "../types/refresh-token-decode-model";
 
 export const useUser = () => {
   const token = localStorage.getItem("refresh_token");
-  let data: IRefreshTokenDecodeModel | null;
-  if (token) {
-    data = jwtDecode(token as string);
-  } else {
-    data = null;
-  }
 
-  return useMemo(() => data, [data]);
+  return useMemo<IRefreshTokenDecodeModel | null>(
+    () => (token ? jwtDecode(token) : null),
+    [token]
+  );
 };
 
 export const useRole = () => {
   const user = useUser();
-  const role = user ? user.role : 0;
 
-  return useMemo(() => role, [role]);
+  return useMemo(() => (user ? user.role : 0), [user]);
 };

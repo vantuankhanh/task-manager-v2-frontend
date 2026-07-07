@@ -16,17 +16,23 @@ const Messages = () => {
   const socket = useRef<Socket | undefined>(undefined);
 
   useEffect(() => {
-    if (user && socket) {
-      socket.current = io(import.meta.env.VITE_SOCKET_IO_URL);
-      socket.current.emit("connectServer", user.id);
-      socket.current.on("receiveMessage", (message: string) => {
-        setMessage({
-          isFrom: false,
-          message,
-          createdAt: new Date().toISOString(),
-        });
+    if (!user) return;
+
+    const currentSocket = io(import.meta.env.VITE_SOCKET_IO_URL);
+    socket.current = currentSocket;
+    currentSocket.emit("connectServer", user.id);
+    currentSocket.on("receiveMessage", (message: string) => {
+      setMessage({
+        isFrom: false,
+        message,
+        createdAt: new Date().toISOString(),
       });
-    }
+    });
+
+    return () => {
+      currentSocket.disconnect();
+      socket.current = undefined;
+    };
   }, [user]);
 
   const [currentUser, setCurrentUser] = useState<IEmployeeModel | null>(null);
@@ -38,7 +44,6 @@ const Messages = () => {
     if (message) {
       setMessageLst((prev) => [...prev, message]);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [message]);
 
   useEffect(() => {
