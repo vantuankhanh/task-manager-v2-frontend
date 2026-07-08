@@ -1,11 +1,16 @@
 import { Dispatch, SetStateAction, useCallback, useState } from "react";
 import { FaEye as EyeIcon, FaEyeSlash as EyeSlashIcon } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Button, Input, InputGroup } from "rsuite";
+import { Input, InputGroup } from "rsuite";
 import { setLoading } from "@/libs/store/reducer/reducer";
 import { useAppDispatch } from "@/libs/store/store";
 import { login, LoginType } from "@/services/auth";
+import {
+  AuthAlternateButtons,
+  AuthHeader,
+  AuthSubmitButton,
+} from "@/components/pages/auth/auth-ui";
 
 interface ILoginPasswordProps {
   setType: Dispatch<SetStateAction<LoginType>>;
@@ -17,6 +22,7 @@ const LoginPassword = ({ setType }: ILoginPasswordProps) => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(false);
 
   const onSubmitLogin = async () => {
     if (email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
@@ -24,17 +30,15 @@ const LoginPassword = ({ setType }: ILoginPasswordProps) => {
 
       const res = await login(email, password);
 
-      if (res) {
-        if (res.status >= 200 && res.status < 300) {
-          localStorage.setItem("refresh_token", res.data.data.refreshToken);
+      if (res && res.status >= 200 && res.status < 300) {
+        localStorage.setItem("refresh_token", res.data.data.refreshToken);
 
-          nav("/");
-        }
+        nav("/");
       }
 
       dispatch(setLoading(false));
     } else {
-      toast.error("Please enter a valid phone number");
+      toast.error("Please enter a valid email");
     }
   };
 
@@ -43,17 +47,10 @@ const LoginPassword = ({ setType }: ILoginPasswordProps) => {
     setPassword("");
   }, []);
 
-  const [visible, setVisible] = useState(false);
-
   return (
     <>
       <div>
-        <div className="text-center mb-8">
-          <div className="text-gray-900 text-3xl font-bold mb-3">Sign In</div>
-          <span className="text-gray-500 font-medium">
-            Enter your email and password
-          </span>
-        </div>
+        <AuthHeader title="Sign In" subtitle="Enter your email and password" />
 
         <div>
           <Input
@@ -79,44 +76,22 @@ const LoginPassword = ({ setType }: ILoginPasswordProps) => {
           </InputGroup>
         </div>
 
-        <div className="mt-6">
-          <Button
-            disabled={!email || !password}
-            className="w-full"
-            color="blue"
-            appearance="primary"
-            onClick={onSubmitLogin}
-          >
-            Sign In
-          </Button>
-        </div>
+        <AuthSubmitButton
+          disabled={!email || !password}
+          onClick={onSubmitLogin}
+        >
+          Sign In
+        </AuthSubmitButton>
       </div>
 
-      <div className="mt-6 text-center">
-        <p>
-          I have an email.{" "}
-          <Link
-            to="#"
-            onClick={() => {
-              setType(LoginType.email);
-              reset();
-            }}
-          >
-            Sign in by email
-          </Link>
-        </p>
-        <p>
-          I have a phone number.{" "}
-          <Link
-            to="#"
-            onClick={() => {
-              setType(LoginType.phoneNumber);
-              reset();
-            }}
-          >
-            Sign in by phone
-          </Link>
-        </p>
+      <div className="mt-6">
+        <AuthAlternateButtons
+          currentType={LoginType.password}
+          onSelectType={(type) => {
+            setType(type);
+            reset();
+          }}
+        />
       </div>
     </>
   );

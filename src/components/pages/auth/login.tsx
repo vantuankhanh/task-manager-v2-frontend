@@ -9,15 +9,14 @@ import {
   submitVerifyCode,
 } from "@/services/auth";
 
-const LoginPhone = lazy(() => import("@/components/pages/auth/login-phone"));
-const LoginEmail = lazy(() => import("@/components/pages/auth/login-email"));
+const LoginVerify = lazy(() => import("@/components/pages/auth/login-verify"));
 const LoginPassword = lazy(() => import("@/components/pages/auth/login-password"));
 
 const Login = () => {
   const nav = useNavigate();
   const dispatch = useAppDispatch();
 
-  const [typeLogin, setTypeLogin] = useState(LoginType.phoneNumber);
+  const [typeLogin, setTypeLogin] = useState(LoginType.password);
 
   const [time, setTime] = useState<number>(30);
   const [isCountdown, setIsCountdown] = useState(false);
@@ -85,15 +84,10 @@ const Login = () => {
         className="bg-white py-20 px-8 sm:px-20 shadow-xl rounded-xl relative "
         style={{ maxWidth: "26rem" }}
       >
-        {typeLogin === LoginType.phoneNumber && (
-          <LoginPhone
-            setType={setTypeLogin}
-            onSubmit={onSubmit}
-            onVerifyCode={onVerifyCode}
-          />
-        )}
-        {typeLogin === LoginType.email && (
-          <LoginEmail
+        {(typeLogin === LoginType.phoneNumber ||
+          typeLogin === LoginType.email) && (
+          <LoginVerify
+            loginType={typeLogin}
             setType={setTypeLogin}
             onSubmit={onSubmit}
             onVerifyCode={onVerifyCode}
