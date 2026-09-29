@@ -7,7 +7,7 @@ import { setLoading } from "@/libs/store/reducer/reducer";
 import { useAppDispatch } from "@/libs/store/store";
 import { createPassword } from "@/services/employee";
 
-const SignupChild = ({ id }: { id: string }) => {
+const SignupChild = ({ signupToken }: { signupToken: string }) => {
   const nav = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -22,12 +22,15 @@ const SignupChild = ({ id }: { id: string }) => {
     if (password) {
       try {
         dispatch(setLoading(true));
-        await createPassword(password, id);
-        toast.success("Created password successfully. Please sign in!");
-        dispatch(setLoading(false));
-        nav("/");
+        const result = await createPassword(password, { signupToken });
+        if (result) {
+          toast.success("Created password successfully. Please sign in!");
+          nav("/");
+        }
       } catch {
         toast.error("Signup failed");
+      } finally {
+        dispatch(setLoading(false));
       }
     } else {
       toast.error("Please enter your password");
@@ -80,12 +83,12 @@ const SignupChild = ({ id }: { id: string }) => {
 
 const SignupEmail = () => {
   const [searchParams] = useSearchParams();
-  if (!searchParams.get("id")) {
-    console.log(searchParams.get("id"));
+  const signupToken = searchParams.get("token");
+  if (!signupToken) {
     return <Navigate to="/" />;
   }
 
-  return <SignupChild id={searchParams.get("id")!.toString()} />;
+  return <SignupChild signupToken={signupToken} />;
 };
 
 export default SignupEmail;
