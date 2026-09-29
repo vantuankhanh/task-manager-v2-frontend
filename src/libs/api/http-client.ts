@@ -10,7 +10,9 @@ const axiosCustom = axios.create({
 
 axiosCustom.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("refresh_token");
+    // API calls use the access token; the refresh token only goes to the
+    // refresh endpoint below
+    const token = localStorage.getItem("access_token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -76,8 +78,11 @@ axiosCustom.interceptors.response.use(
         { headers: { Authorization: `Bearer ${currentToken}` } }
       );
 
-      const newToken = response.data.refresh_token;
-      localStorage.setItem("refresh_token", newToken);
+      // The backend wraps payloads as { message, data }
+      const { access_token: newToken, refresh_token: newRefreshToken } =
+        response.data.data;
+      localStorage.setItem("access_token", newToken);
+      localStorage.setItem("refresh_token", newRefreshToken);
       flushQueue(null, newToken);
 
       originalRequest.headers = {

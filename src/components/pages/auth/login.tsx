@@ -67,6 +67,7 @@ const Login = () => {
 
     if (res) {
       if (res.status >= 200 && res.status < 300) {
+        localStorage.setItem("access_token", res.data.data.accessToken);
         localStorage.setItem("refresh_token", res.data.data.refreshToken);
 
         nav("/");

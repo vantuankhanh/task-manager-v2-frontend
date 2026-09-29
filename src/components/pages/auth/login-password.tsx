@@ -31,6 +31,7 @@ const LoginPassword = ({ setType }: ILoginPasswordProps) => {
       const res = await login(email, password);
 
       if (res && res.status >= 200 && res.status < 300) {
+        localStorage.setItem("access_token", res.data.data.accessToken);
         localStorage.setItem("refresh_token", res.data.data.refreshToken);
 
         nav("/");
