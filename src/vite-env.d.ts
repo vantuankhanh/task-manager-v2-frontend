@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  /** "iam" when VTK IAM signs people in; anything else is the legacy sign-in. */
+  readonly VITE_AUTH_MODE?: string;
   readonly VITE_SOCKET_IO_URL: string;
   readonly VITE_BASE_URL: string;
   readonly VITE_URL_LOGIN: string;
