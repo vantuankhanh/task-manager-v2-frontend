@@ -26,7 +26,8 @@
     "build": "tsc --b && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "dev:iam": "vite --mode iam-dev --port 5175 --strictPort"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
