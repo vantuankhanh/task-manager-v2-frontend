@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Socket, io } from "socket.io-client";
-import { isIamMode } from "@/libs/auth/auth-mode";
 import { useUser } from "@/libs/hooks/use-user";
 import { setLoadingMessage } from "@/libs/store/reducer/reducer";
 import { useAppDispatch } from "@/libs/store/store";
@@ -19,14 +18,12 @@ const Messages = () => {
   useEffect(() => {
     if (!user) return;
 
-    // With VTK IAM the server knows who connects from the sign-in cookie,
-    // which the browser only sends along when asked to. In the legacy mode
-    // the page says who it is.
+    // The server knows who connects from the sign-in cookie, which the
+    // browser only sends along when asked to.
     const currentSocket = io(import.meta.env.VITE_SOCKET_IO_URL, {
-      withCredentials: isIamMode,
+      withCredentials: true,
     });
     socket.current = currentSocket;
-    if (!isIamMode) currentSocket.emit("connectServer", user.id);
     currentSocket.on("receiveMessage", (message: string) => {
       setMessage({
         isFrom: false,

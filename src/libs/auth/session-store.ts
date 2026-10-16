@@ -1,7 +1,7 @@
 import axios, { AxiosError } from "axios";
 import { IRefreshTokenDecodeModel } from "@/libs/types/refresh-token-decode-model";
 
-// Who is signed in when VTK IAM signs people in (VITE_AUTH_MODE=iam).
+// Who is signed in. VTK IAM signs people in.
 //
 // The tokens are in cookies the page cannot read, so the page asks the
 // backend who it is. The answer is kept here, outside React, because the

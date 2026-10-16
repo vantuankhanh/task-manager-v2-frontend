@@ -1,105 +1,26 @@
-import { lazy, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-import { setLoading } from "@/libs/store/reducer/reducer";
-import { useAppDispatch } from "@/libs/store/store";
 import {
-  LoginType,
-  sendVerifyCode,
-  submitVerifyCode,
-} from "@/services/auth";
+  AuthHeader,
+  AuthSubmitButton,
+} from "@/components/pages/auth/auth-ui";
+import { signInUrl } from "@/libs/auth/session-store";
 
-const LoginVerify = lazy(() => import("@/components/pages/auth/login-verify"));
-const LoginPassword = lazy(() => import("@/components/pages/auth/login-password"));
-
-const Login = () => {
-  const nav = useNavigate();
-  const dispatch = useAppDispatch();
-
-  const [typeLogin, setTypeLogin] = useState(LoginType.password);
-
-  const [time, setTime] = useState<number>(30);
-  const [isCountdown, setIsCountdown] = useState(false);
-
-  useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (isCountdown && time > 0) {
-      timer = setTimeout(() => {
-        setTime((prev) => prev - 1);
-      }, 1000);
-    } else {
-      setIsCountdown(false);
-    }
-
-    return () => clearInterval(timer);
-  }, [time, isCountdown]);
-
-  const onSubmit = async (
-    type: string,
-    phoneNumber?: string,
-    email?: string,
-  ) => {
-    if (!isCountdown) {
-      dispatch(setLoading(true));
-
-      setIsCountdown(true);
-      setTime(30);
-      const res = await sendVerifyCode(type, phoneNumber, email);
-      if (!res || res.status > 300) {
-        toast.error("Failed to send verification code");
-      }
-
-      dispatch(setLoading(false));
-    } else {
-      toast.warning(`Wait ${time}s to send verification code again`);
-    }
-  };
-
-  const onVerifyCode = async (
-    type: string,
-    code: string,
-    phoneNumber?: string,
-    email?: string,
-  ) => {
-    dispatch(setLoading(true));
-
-    const res = await submitVerifyCode(type, code, phoneNumber, email);
-
-    if (res) {
-      if (res.status >= 200 && res.status < 300) {
-        localStorage.setItem("access_token", res.data.data.accessToken);
-        localStorage.setItem("refresh_token", res.data.data.refreshToken);
-
-        nav("/");
-      }
-    } else {
-      toast.error("Failed to verify code");
-    }
-
-    dispatch(setLoading(false));
-  };
-
-  return (
-    <div className="box-center flex-col bg-white min-h-full min-w-full overflow-hidden px-4">
-      <div
-        className="bg-white py-20 px-8 sm:px-20 shadow-xl rounded-xl relative "
-        style={{ maxWidth: "26rem" }}
-      >
-        {(typeLogin === LoginType.phoneNumber ||
-          typeLogin === LoginType.email) && (
-          <LoginVerify
-            loginType={typeLogin}
-            setType={setTypeLogin}
-            onSubmit={onSubmit}
-            onVerifyCode={onVerifyCode}
-          />
-        )}
-        {typeLogin === LoginType.password && (
-          <LoginPassword setType={setTypeLogin} />
-        )}
-      </div>
+// The sign-in page: one button that leaves for VTK IAM, which asks for the
+// password or offers Google, and comes back.
+const Login = () => (
+  <div className="box-center flex-col bg-white min-h-full min-w-full overflow-hidden px-4">
+    <div
+      className="bg-white py-20 px-8 sm:px-20 shadow-xl rounded-xl relative "
+      style={{ maxWidth: "26rem" }}
+    >
+      <AuthHeader
+        title="Task Manager"
+        subtitle="Sign in with the email address your account was created for."
+      />
+      <AuthSubmitButton onClick={() => window.location.assign(signInUrl())}>
+        Sign in
+      </AuthSubmitButton>
     </div>
-  );
-};
+  </div>
+);
 
 export default Login;

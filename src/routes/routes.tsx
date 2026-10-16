@@ -1,23 +1,16 @@
 import { lazy } from "react";
 import { Navigate, Outlet, useRoutes } from "react-router-dom";
 import LayoutMain from "@/components/layouts/main-layout";
-import { isIamMode } from "@/libs/auth/auth-mode";
 import RedirectIfAuthenticated from "@/routes/redirect-if-authenticated";
 import RequireLogin from "@/routes/require-login";
 
 /* -----------------------------AUTH--------------------------------- */
 
 const AccessDeniedPage = lazy(() => import("@/components/pages/auth/access"));
-// With VTK IAM the sign-in page is one button; the forms for passwords and
-// codes are not even downloaded.
-const Login = lazy(() =>
-  isIamMode
-    ? import("@/components/pages/auth/login-iam")
-    : import("@/components/pages/auth/login"),
-);
+// VTK IAM signs people in: the sign-in page is one button.
+const Login = lazy(() => import("@/components/pages/auth/login"));
 const Logout = lazy(() => import("@/components/pages/auth/logout"));
 const NotFound = lazy(() => import("@/components/pages/auth/not-found"));
-const SignupEmail = lazy(() => import("@/components/pages/auth/signup-email"));
 const SignInFailed = lazy(
   () => import("@/components/pages/auth/sign-in-failed"),
 );
@@ -61,11 +54,9 @@ const Router = () => {
           ),
         },
         { path: "logout", element: <Logout /> },
-        // Passwords are set at the IAM when it signs people in.
-        {
-          path: "signup-email",
-          element: isIamMode ? <Navigate to="/auth/login" replace /> : <SignupEmail />,
-        },
+        // Passwords are set at the IAM. Invitations sent before it signed
+        // people in still link here.
+        { path: "signup-email", element: <Navigate to="/auth/login" replace /> },
         { path: "sign-in-failed", element: <SignInFailed /> },
         { path: "403", element: <AccessDeniedPage /> },
         { path: "404", element: <NotFound /> },
