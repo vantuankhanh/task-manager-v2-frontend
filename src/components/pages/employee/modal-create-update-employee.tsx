@@ -146,7 +146,14 @@ const ModalCreateUpdateEmployee = ({
                   ref={emailRef}
                   placeholder="Email Address"
                   className="w-full"
+                  disabled={item?.isLinkedToIam ?? false}
                 />
+                {item?.isLinkedToIam && (
+                  <p className="text-gray-500 text-xs mt-1 pl-2">
+                    Signs in with VTK IAM: the email changes on their IAM
+                    account page.
+                  </p>
+                )}
               </div>
             </div>
 

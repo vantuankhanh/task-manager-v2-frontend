@@ -8,4 +8,7 @@ export interface IEmployeeModel {
   role?: number;
   password?: string;
   status?: boolean;
+  // Signed in at least once through VTK IAM: the email then comes from the
+  // IAM and the owner can no longer change it.
+  isLinkedToIam?: boolean;
 }
